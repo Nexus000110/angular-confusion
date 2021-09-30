@@ -1,9 +1,5 @@
-<div class="container" 
-    fxLayout="row" 
-    fxLayout.sm="column" 
-    fxLayout.xs="column"
-    fxLayoutAlign.gt-md="space-around center" 
-    fxLayoutGap="10px" fxLayoutGap.xs="0">
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
+  fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 
   <div fxFlex="40" *ngIf="dish">
     <mat-card>
@@ -11,7 +7,7 @@
         <mat-card-title>
 
           <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>
-          
+
         </mat-card-title>
       </mat-card-header>
       <img mat-card-image src="{{ baseURL + dish.image }}" alt={{dish.name}}>
@@ -65,23 +61,25 @@
       </p>
 
       <p>
-        <mat-slider matInput formControlName="rating" thumbLabel tickInterval="1" min="1" max="5" step="1" value="5"></mat-slider>
+        <mat-slider matInput formControlName="rating" thumbLabel tickInterval="1" min="1" max="5" step="1" value="5">
+        </mat-slider>
       </p>
-        
+
       <p>
         <mat-form-field class="full-width">
           <textarea matInput formControlName="comment" placeholder="Your Comment" rows=12 required></textarea>
-          
+
           <mat-error *ngIf=formErrors.comment>
             {{ formErrors.comment }}
           </mat-error>
         </mat-form-field>
       </p>
-      
-      <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
+
+      <button type="submit" mat-button class="background-primary text-floral-white"
+        [disabled]="feedbackForm.invalid">Submit</button>
     </form>
   </div>
-  
+
   <div [hidden]="dish || errMess">
     <mat-spinner></mat-spinner>
     <h4>Loading . . . Please Wait</h4>
