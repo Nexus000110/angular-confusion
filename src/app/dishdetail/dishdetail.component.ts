@@ -124,6 +124,7 @@ export class DishdetailComponent implements OnInit {
         }
       }
     }
+
   }
 
   setPrevNext(dishId: string) {
